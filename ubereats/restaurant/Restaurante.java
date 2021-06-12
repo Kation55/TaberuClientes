@@ -11,25 +11,18 @@ import java.util.Map;
 
 public class Restaurante{
 
-    private String nombre, descripcion, calle, ciudad,
-            house, estado, email, telefono, categoria, id;
+    private String nombre, descripcion, email, telefono, categoria, id;
     private int cpp;
     private Bitmap bitmap;
 
     private double puntuacion;
     private Timestamp diaCreacion;
 
-    public Restaurante(String nombre, String descripcion, String calle, String ciudad,
-                       String house, int cpp, String estado, String email, String telefono,
+    public Restaurante(String nombre, String descripcion, String email, String telefono,
                        String categoria) {
 
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.calle = calle;
-        this.ciudad = ciudad;
-        this.house = house;
-        this.cpp = cpp;
-        this.estado = estado;
         this.email = email;
         this.telefono = telefono;
         this.categoria = categoria;
@@ -40,8 +33,7 @@ public class Restaurante{
     }
 
     public static Restaurante of (Map<String, Object> data) {
-        String nombre, descripcion, calle, ciudad,
-                house, estado, email, telefono, categoria;
+        String nombre, descripcion, email, telefono, categoria;
 
         int cpp;
 
@@ -50,19 +42,13 @@ public class Restaurante{
 
         nombre = (String) data.get("Nombre");
         descripcion = (String) data.get("Descripcion");
-        calle = (String) data.get("Calle");
-        ciudad = (String) data.get("Ciudad");
-        house = (String) data.get("House");
-        cpp = ((Number) data.get("Cpp")).intValue();
-        estado = (String) data.get("Estado");
         email = (String) data.get("Email");
         telefono = (String) data.get("Telefono");
         categoria = (String) data.get("Categoria");
         puntuacion = (Double) data.get("Puntuacion");
         diaCreacion = (Timestamp) data.get("DiaCreacion");
 
-        Restaurante restaurante = new Restaurante(nombre, descripcion, calle, ciudad,
-                house, cpp, estado, email, telefono, categoria);
+        Restaurante restaurante = new Restaurante(nombre, descripcion, email, telefono, categoria);
 
         restaurante.setPuntuacion(puntuacion);
         restaurante.setDiaCreacion(diaCreacion);
@@ -75,11 +61,6 @@ public class Restaurante{
 
         map.put("Nombre", nombre);
         map.put("Descripcion", descripcion);
-        map.put("Calle", calle);
-        map.put("Ciudad", ciudad);
-        map.put("House", house);
-        map.put("Cpp", cpp);
-        map.put("Estado", estado);
         map.put("Email", email);
         map.put("Telefono", telefono);
         map.put("Categoria", categoria);
@@ -93,21 +74,11 @@ public class Restaurante{
         return puntuacion;
     }
 
-    public String getCalle() {
-        return calle;
-    }
 
     public String getCategoria() {
         return categoria;
     }
 
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public int getCpp() {
-        return cpp;
-    }
 
     public Bitmap getBitmap() {
         return bitmap;
@@ -125,13 +96,6 @@ public class Restaurante{
         return id;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public String getHouse() {
-        return house;
-    }
 
     public String getNombre() {
         return nombre;
@@ -145,21 +109,10 @@ public class Restaurante{
         return diaCreacion;
     }
 
-    public void setCalle(String calle) {
-        this.calle = calle;
-    }
-
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public void setCpp(int cpp) {
-        this.cpp = cpp;
-    }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
@@ -179,14 +132,6 @@ public class Restaurante{
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public void setHouse(String house) {
-        this.house = house;
     }
 
     public void setNombre(String nombre) {
